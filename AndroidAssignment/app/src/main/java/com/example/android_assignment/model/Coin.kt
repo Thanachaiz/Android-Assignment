@@ -1,0 +1,32 @@
+package com.example.android_assignment.model
+
+data class Coin(
+    var allTimeHigh: AllTimeHigh,
+    var approvedSupply: Boolean,
+    var change: Double,
+    var circulatingSupply: Int,
+    var color: String,
+    var confirmedSupply: Boolean,
+    var description: String,
+    var firstSeen: Long,
+    var history: List<String>,
+    var iconType: String,
+    var iconUrl: String,
+    var id: Int,
+    var links: List<Link>,
+    var marketCap: Long,
+    var name: String,
+    var numberOfExchanges: Int,
+    var numberOfMarkets: Int,
+    var penalty: Boolean,
+    var price: String,
+    var rank: Int,
+    var slug: String,
+    var socials: List<Social>,
+    var symbol: String,
+    var totalSupply: Int,
+    var type: String,
+    var uuid: String,
+    var volume: Long,
+    var websiteUrl: String
+)
