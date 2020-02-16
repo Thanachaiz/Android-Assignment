@@ -1,4 +1,4 @@
-package com.example.android_assignment
+package com.example.android_assignment.api
 
 import okhttp3.Interceptor
 import okhttp3.Response
