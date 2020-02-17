@@ -10,10 +10,10 @@ class SupportInterceptor: Interceptor{
 
     override fun intercept(chain: Interceptor.Chain): Response {
         var request = chain.request()
-        request = request?.newBuilder()
-            ?.addHeader("User-Agent", userAgent)
+        request = request.newBuilder()
+            .addHeader("User-Agent", userAgent!!)
             //?.addHeader("Device-ID ")
-            ?.build()
+            .build()
         return chain.proceed(request)
     }
 }

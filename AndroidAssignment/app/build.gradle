@@ -11,6 +11,7 @@ android {
         applicationId "com.example.android_assignment"
         minSdkVersion 19
         targetSdkVersion 29
+        multiDexEnabled true
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -50,8 +51,9 @@ dependencies {
 
     ///retrofit api
     implementation 'com.squareup.retrofit2:retrofit:2.7.1'
-    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.3.1'
 
     ///recyclerView
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
@@ -65,8 +67,14 @@ dependencies {
 
     implementation 'com.squareup.picasso:picasso:2.71828'
 
-    //GlideToVectorYou
+    ///GlideToVectorYou
     implementation 'com.github.corouteam:GlideToVectorYou:v2.0.0'
 
-}
+    ///Paging Library
+    implementation 'android.arch.paging:runtime:1.0.1'
 
+    //Rx
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+
+}
