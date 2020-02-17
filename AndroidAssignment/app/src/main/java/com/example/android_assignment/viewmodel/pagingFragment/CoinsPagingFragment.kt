@@ -1,4 +1,4 @@
-package com.example.android_assignment.viewmodel
+package com.example.android_assignment.viewmodel.pagingFragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -7,20 +7,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.paging.PagedList
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import com.example.android_assignment.R
-import com.example.android_assignment.adapter.pagingAdapter.PageListCoinsViewModel
 import com.example.android_assignment.adapter.pagingAdapter.PagingAdapter
+import com.example.android_assignment.model.Coin
 
 class CoinsPagingFragment : Fragment() {
 
     companion object {
-        fun newInstance() = CoinsPagingFragment()
+        fun newInstance() =
+            CoinsPagingFragment()
     }
 
     private lateinit var coinsViewModel: PageListCoinsViewModel
@@ -39,15 +39,17 @@ class CoinsPagingFragment : Fragment() {
 
         coinsViewModel = ViewModelProviders.of(this).get(PageListCoinsViewModel::class.java)
         val recyclerBuildItem : RecyclerView = view.findViewById(R.id.recyclerViewCoins)
-
-        coinsViewModel.getLiveDataCoins().observe(this, Observer {
-
+        // Create the observer which updates the UI.
+        val nameObserver = Observer<PagedList<Coin>> { it ->
+            // Update the UI, in this case, a TextView.
             recyclerBuildItem.also {recyclerBuildItem ->
                 recyclerBuildItem.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
                 recyclerBuildItem.setHasFixedSize(true)
                 recyclerBuildItem.adapter = adapter
             }
             adapter.submitList(it)
-        })
+        }
+
+        coinsViewModel.getLiveDataCoins().observe(this, nameObserver)
     }
 }

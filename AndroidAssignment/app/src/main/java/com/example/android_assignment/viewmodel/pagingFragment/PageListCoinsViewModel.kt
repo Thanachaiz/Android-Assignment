@@ -1,10 +1,13 @@
-package com.example.android_assignment.adapter.pagingAdapter
+package com.example.android_assignment.viewmodel.pagingFragment
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
+import com.example.android_assignment.adapter.pagingAdapter.CoinsDataSource
+import com.example.android_assignment.adapter.pagingAdapter.CoinsDataSourceFactory
+import com.example.android_assignment.adapter.pagingAdapter.PAGE_LIMIT
 import com.example.android_assignment.model.Coin
 
 class PageListCoinsViewModel : ViewModel(){
