@@ -1,4 +1,4 @@
-package com.example.android_assignment.ui
+package com.example.android_assignment.ui.coinsFragment
 
 import android.util.Log
 import androidx.lifecycle.LiveData

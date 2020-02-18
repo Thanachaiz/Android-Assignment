@@ -1,4 +1,4 @@
-package com.example.android_assignment.adapter.pagingAdapter
+package com.example.android_assignment.datasource
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource

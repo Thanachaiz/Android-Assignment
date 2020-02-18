@@ -1,24 +1,11 @@
-package com.example.android_assignment.adapter
+package com.example.android_assignment.adapter.coinAdapter
 
-import android.app.Activity
-import android.graphics.Bitmap
-import android.graphics.drawable.PictureDrawable
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.android_assignment.R
 import com.example.android_assignment.model.Coin
-import android.net.Uri
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.bumptech.glide.RequestBuilder
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
+import com.example.android_assignment.adapter.CoinViewHolder
 
 
 class CoinsAdapter2: ListAdapter<Coin, RecyclerView.ViewHolder>(REPO_COMPARATOR) {

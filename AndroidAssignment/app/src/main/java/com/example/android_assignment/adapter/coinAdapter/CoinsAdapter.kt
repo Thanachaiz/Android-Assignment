@@ -1,7 +1,6 @@
-package com.example.android_assignment.adapter
+package com.example.android_assignment.adapter.coinAdapter
 
 import android.app.Activity
-import android.graphics.Bitmap
 import android.graphics.drawable.PictureDrawable
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,7 +12,6 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android_assignment.R
 import com.example.android_assignment.model.Coin
-import android.net.Uri
 import com.bumptech.glide.RequestBuilder
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
