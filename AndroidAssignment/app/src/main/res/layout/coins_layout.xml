@@ -16,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_view"
             android:padding="16dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -54,6 +55,44 @@
                     android:ellipsize="end"
                     android:maxLines="3"
                     android:text="des"/>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_view2"
+            android:visibility="gone"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/image_coins2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/btc_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingEnd="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/image_coins2"
+                app:layout_constraintEnd_toStartOf="@+id/image_coins2"
+                app:layout_constraintTop_toTopOf="@+id/image_coins2">
+
+                <TextView
+                    android:id="@+id/txt_nameCoins2"
+                    style="@style/TextAppearance.AppCompat.Headline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bitcoin"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 

@@ -1,4 +1,4 @@
-package com.example.android_assignment.viewmodel.pagingFragment
+package com.example.android_assignment.`ีร`.pagingFragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -40,16 +40,26 @@ class CoinsPagingFragment : Fragment() {
         coinsViewModel = ViewModelProviders.of(this).get(PageListCoinsViewModel::class.java)
         val recyclerBuildItem : RecyclerView = view.findViewById(R.id.recyclerViewCoins)
         // Create the observer which updates the UI.
-        val nameObserver = Observer<PagedList<Coin>> { it ->
-            // Update the UI, in this case, a TextView.
-            recyclerBuildItem.also {recyclerBuildItem ->
-                recyclerBuildItem.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+//        val nameObserver = Observer<PagedList<Coin>> { it ->
+//            // Update the UI, in this case, a TextView.
+//            recyclerBuildItem.also {recyclerBuildItem ->
+//                recyclerBuildItem.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+//                recyclerBuildItem.setHasFixedSize(true)
+//                recyclerBuildItem.adapter = adapter
+//            }
+//            adapter.submitList(it)
+//        }
+//
+//        coinsViewModel.getLiveDataCoins().observe(this, nameObserver)
+        coinsViewModel.getLiveDataCoins().observe(this, Observer {
+
+            recyclerBuildItem.also { recyclerBuildItem ->
+                recyclerBuildItem.layoutManager =
+                    LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
                 recyclerBuildItem.setHasFixedSize(true)
                 recyclerBuildItem.adapter = adapter
             }
             adapter.submitList(it)
-        }
-
-        coinsViewModel.getLiveDataCoins().observe(this, nameObserver)
+        })
     }
 }

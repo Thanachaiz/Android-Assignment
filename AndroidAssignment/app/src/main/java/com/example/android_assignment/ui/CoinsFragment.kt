@@ -1,4 +1,4 @@
-package com.example.android_assignment.viewmodel
+package com.example.android_assignment.`ีร`
 
 import android.annotation.SuppressLint
 import androidx.lifecycle.ViewModelProviders
@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import com.example.android_assignment.R
-import com.example.android_assignment.adapter.CoinsAdapter
 import com.example.android_assignment.adapter.CoinsAdapter2
 
 class CoinsFragment : Fragment() {

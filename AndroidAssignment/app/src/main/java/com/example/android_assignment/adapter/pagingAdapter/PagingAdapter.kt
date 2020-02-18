@@ -15,6 +15,8 @@ class PagingAdapter: PagedListAdapter<Coin, RecyclerView.ViewHolder>(COIN_COMPAR
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val coinsItem = getItem(position)
+
+//        println("DataSet : ${coinsItem?.id}")
         if (coinsItem != null) {
             (holder as CoinViewHolder).bind(coinsItem)
         }
@@ -23,7 +25,7 @@ class PagingAdapter: PagedListAdapter<Coin, RecyclerView.ViewHolder>(COIN_COMPAR
     companion object{
         private val COIN_COMPARATOR = object : DiffUtil.ItemCallback<Coin>() {
             override fun areItemsTheSame(oldItem: Coin, newItem: Coin): Boolean =
-                oldItem.name == newItem.name
+                oldItem.id == newItem.id
 
             override fun areContentsTheSame(oldItem: Coin, newItem: Coin): Boolean =
                 oldItem == newItem

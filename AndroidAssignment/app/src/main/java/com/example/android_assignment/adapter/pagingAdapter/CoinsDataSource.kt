@@ -11,7 +11,7 @@ import retrofit2.Response
 import kotlin.math.ceil
 
 const val PAGE_LIMIT = 10
-const val PAGE_OFFSET = 1
+const val PAGE_OFFSET = 0
 
 class CoinsDataSource : PageKeyedDataSource<Int, Coin>(){
 
@@ -31,9 +31,12 @@ class CoinsDataSource : PageKeyedDataSource<Int, Coin>(){
                 if (response.isSuccessful && result?.status == "success") {
 
                     val dataCoins = result.data.coins
+//                    dataCoins.forEach {
+//                        Log.e("TESTDATA : ", "${it.id}")
+//                    }
                     if (!dataCoins.isNullOrEmpty()) {
 
-                        Log.d("TESTDATA", dataCoins.toString())
+
 
                         callback.onResult(dataCoins, null, PAGE_OFFSET +1)
 
@@ -55,8 +58,9 @@ class CoinsDataSource : PageKeyedDataSource<Int, Coin>(){
         params: LoadParams<Int>,
         callback: LoadCallback<Int, Coin>) {
 
-        Coins_api_Service.CoinsPageing(params.key,
-            PAGE_OFFSET
+        Coins_api_Service.CoinsPageing(
+            PAGE_LIMIT,
+            params.key
         ).enqueue(object : Callback<CoinsModel> {
 
             override fun onResponse(call: Call<CoinsModel>, response: Response<CoinsModel>) {
@@ -70,6 +74,10 @@ class CoinsDataSource : PageKeyedDataSource<Int, Coin>(){
 
                     val keyPa = if (params.key < TOTAL_PAGE) params.key + 1 else null
 
+                    Log.e("KEY", ""+params.key)
+//                    dataCoins.forEach {
+//                        Log.e("TESTDATALOADAFTER : ", "${it.id}")
+//                    }
                     if (!dataCoins.isNullOrEmpty()) {
 
                         Log.e("loadAfter", "${params.key}")
