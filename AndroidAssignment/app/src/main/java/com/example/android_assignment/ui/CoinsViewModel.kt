@@ -1,4 +1,4 @@
-package com.example.android_assignment.`ีร`
+package com.example.android_assignment.ui
 
 import android.util.Log
 import androidx.lifecycle.LiveData

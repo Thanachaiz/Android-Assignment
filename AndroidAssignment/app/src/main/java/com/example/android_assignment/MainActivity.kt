@@ -2,8 +2,7 @@ package com.example.android_assignment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.android_assignment.`ีร`.CoinsFragment
-import com.example.android_assignment.`ีร`.pagingFragment.CoinsPagingFragment
+import com.example.android_assignment.ui.pagingFragment.CoinsPagingFragment
 
 class MainActivity : AppCompatActivity() {
 

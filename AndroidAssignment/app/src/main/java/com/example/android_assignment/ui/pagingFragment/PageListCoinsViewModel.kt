@@ -1,4 +1,4 @@
-package com.example.android_assignment.`ีร`.pagingFragment
+package com.example.android_assignment.ui.pagingFragment
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

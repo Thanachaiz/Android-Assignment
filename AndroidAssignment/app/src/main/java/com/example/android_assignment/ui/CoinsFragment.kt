@@ -1,4 +1,4 @@
-package com.example.android_assignment.`ีร`
+package com.example.android_assignment.ui
 
 import android.annotation.SuppressLint
 import androidx.lifecycle.ViewModelProviders

@@ -1,4 +1,4 @@
-package com.example.android_assignment.`ีร`.pagingFragment
+package com.example.android_assignment.ui.pagingFragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -8,13 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.paging.PagedList
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
 import com.example.android_assignment.R
 import com.example.android_assignment.adapter.pagingAdapter.PagingAdapter
-import com.example.android_assignment.model.Coin
+
 
 class CoinsPagingFragment : Fragment() {
 
@@ -24,7 +23,10 @@ class CoinsPagingFragment : Fragment() {
     }
 
     private lateinit var coinsViewModel: PageListCoinsViewModel
-    val adapter = PagingAdapter()
+    var adapter = PagingAdapter()
+    private var checkScreen : String? = null
+    private var spanCount = 0
+
 //    private var itemAdapter = CoinsAdapter()
 
     override fun onCreateView(
@@ -37,6 +39,7 @@ class CoinsPagingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        checkScreen = resources.getString(R.string.screen)
         coinsViewModel = ViewModelProviders.of(this).get(PageListCoinsViewModel::class.java)
         val recyclerBuildItem : RecyclerView = view.findViewById(R.id.recyclerViewCoins)
         // Create the observer which updates the UI.
@@ -54,8 +57,22 @@ class CoinsPagingFragment : Fragment() {
         coinsViewModel.getLiveDataCoins().observe(this, Observer {
 
             recyclerBuildItem.also { recyclerBuildItem ->
-                recyclerBuildItem.layoutManager =
-                    LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
+                spanCount = when (checkScreen){
+                    "tablet" ->{
+                        2
+                    }
+                    "tablet7" ->{
+                        2
+                    }
+                    "tablet10" ->{
+                        3
+                    }
+                    else ->{
+                        1
+                    }
+                }
+                recyclerBuildItem.layoutManager = GridLayoutManager(context, spanCount)
                 recyclerBuildItem.setHasFixedSize(true)
                 recyclerBuildItem.adapter = adapter
             }
