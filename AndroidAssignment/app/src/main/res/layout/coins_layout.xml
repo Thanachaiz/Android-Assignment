@@ -23,11 +23,10 @@
 
             <ImageView
                 android:id="@+id/image_coins"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="@dimen/width_imagecoin"
+                android:layout_height="@dimen/height_imagecoin"
                 android:scaleType="fitCenter"
                 android:src="@drawable/btc_icon"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,6 +43,7 @@
                     style="@style/TextAppearance.AppCompat.Headline"
                     android:id="@+id/txt_nameCoins"
                     android:textStyle="bold"
+                    android:textSize="@dimen/text_name_size"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Bitcoin"/>
@@ -52,6 +52,7 @@
                     android:id="@+id/txt_descriptionCoins"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:textSize="@dimen/text_des_size"
                     android:ellipsize="end"
                     android:maxLines="3"
                     android:text="des"/>
@@ -69,8 +70,8 @@
 
             <ImageView
                 android:id="@+id/image_coins2"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="@dimen/width_imagecoin"
+                android:layout_height="@dimen/height_imagecoin"
                 android:scaleType="fitCenter"
                 android:src="@drawable/btc_icon"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -92,6 +93,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Bitcoin"
+                    android:textSize="@dimen/text_name_size"
                     android:textStyle="bold" />
 
             </LinearLayout>
