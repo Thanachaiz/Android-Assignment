@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.example.android_assignment.R
 import com.example.android_assignment.adapter.coinAdapter.CoinsAdapter2
+import kotlinx.android.synthetic.main.coins_fragment.*
 
 class CoinsFragment : Fragment() {
 
@@ -30,17 +31,22 @@ class CoinsFragment : Fragment() {
         return inflater.inflate(R.layout.coins_fragment, container, false);
     }
 
+    @SuppressLint("FragmentLiveDataObserve")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-    }
-    @SuppressLint("FragmentLiveDataObserve")
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
         coinsViewModel = ViewModelProviders.of(this).get(CoinsViewModel::class.java)
 
-        val recyclerBuildItem : RecyclerView = view!!.findViewById(R.id.recyclerViewCoins)
+        coins_refresh.setOnRefreshListener {
+            coinsViewModel.refresh()
+            coins_refresh.isRefreshing = true
+        }
 
+        initData()
+
+    }
+
+    private fun initData(){
+        val recyclerBuildItem : RecyclerView = view!!.findViewById(R.id.recyclerViewCoins)
         coinsViewModel.getLiveDataCoins().observe(this, Observer {
 
             recyclerBuildItem.apply {
@@ -48,8 +54,8 @@ class CoinsFragment : Fragment() {
                 setHasFixedSize(true)
                 adapter = adapter2
             }
+            coins_refresh.isRefreshing = false
             adapter2.submitList(it)
         })
     }
-
 }

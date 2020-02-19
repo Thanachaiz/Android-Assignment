@@ -1,4 +1,4 @@
-package com.example.android_assignment.ui.pagingFragment
+package com.example.android_assignment.ui.searchFragment
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,16 +9,8 @@ import com.example.android_assignment.datasource.CoinsDataSource
 import com.example.android_assignment.datasource.CoinsDataSourceFactory
 import com.example.android_assignment.datasource.PAGE_LIMIT
 import com.example.android_assignment.model.Coin
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import androidx.lifecycle.Transformations
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 
-
-
-
-
-class SearchViewModel : ViewModel(){
-
+class SearchViewModel : ViewModel() {
     private var listResult = MutableLiveData<CoinsDataSource>().apply {
         this.also {
             ItemViewModel()
@@ -31,7 +23,11 @@ class SearchViewModel : ViewModel(){
     fun ItemViewModel(){
 
         val coinsDataSourceFactory = CoinsDataSourceFactory()
-        listResult = CoinsDataSourceFactory().getItemLiveData()
+//        var teamsList: LiveData<PagedList<Coin>> =
+//        Transformations.switchMap(filterTextAll, input ->{
+//
+//        })
+//    }
 
         val config = PagedList.Config.Builder()
             .setEnablePlaceholders(false)
@@ -41,7 +37,7 @@ class SearchViewModel : ViewModel(){
         itemPagedList = LivePagedListBuilder(coinsDataSourceFactory, config).build()
     }
 
-    fun getLive(): LiveData<PagedList<Coin>>{
+    fun getLive(): LiveData<PagedList<Coin>> {
 
         if (itemPagedList == null){
             itemPagedList = MutableLiveData()

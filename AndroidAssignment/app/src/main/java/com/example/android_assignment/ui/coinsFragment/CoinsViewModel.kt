@@ -2,8 +2,10 @@ package com.example.android_assignment.ui.coinsFragment
 
 import android.util.Log
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.paging.PagedList
 import com.example.android_assignment.api.CoinRankingReq
 import com.example.android_assignment.model.Coin
 import com.example.android_assignment.model.CoinsModel
@@ -31,6 +33,7 @@ class CoinsViewModel : ViewModel() {
 
                     val data : List<Coin> = (responseData.data.coins)
                     listResult.value = data
+                    Log.d("TEST","Loading")
 
                 } else {
                     ///response or status not success
@@ -52,5 +55,9 @@ class CoinsViewModel : ViewModel() {
         }
 
         return listResult
+    }
+
+    fun refresh(){
+        callApi()
     }
 }

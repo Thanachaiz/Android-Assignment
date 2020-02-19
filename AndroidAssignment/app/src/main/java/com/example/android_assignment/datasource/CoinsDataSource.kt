@@ -73,8 +73,6 @@ class CoinsDataSource : PageKeyedDataSource<Int, Coin>(){
                     TOTAL_PAGE = totalCoin.toInt()
 
                     val keyPa = if (params.key < TOTAL_PAGE) params.key + 1 else null
-
-                    Log.e("KEY", ""+params.key)
 //                    dataCoins.forEach {
 //                        Log.e("TESTDATALOADAFTER : ", "${it.id}")
 //                    }

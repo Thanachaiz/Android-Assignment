@@ -8,16 +8,13 @@ import com.example.android_assignment.model.Coin
 class CoinsDataSourceFactory: DataSource.Factory<Int, Coin>(){
 
     private val coinsLiveDataSource = MutableLiveData<CoinsDataSource>()
-
+    lateinit var coinsDataSource : CoinsDataSource
 
     override fun create(): DataSource<Int, Coin> {
-        val coinsDataSource = CoinsDataSource()
+
+        coinsDataSource = CoinsDataSource()
         coinsLiveDataSource.postValue(coinsDataSource)
 
         return coinsDataSource
-    }
-
-    fun getItemLiveData(): MutableLiveData<CoinsDataSource> {
-        return coinsLiveDataSource
     }
 }
